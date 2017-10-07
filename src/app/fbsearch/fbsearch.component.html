@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Name" #search>
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-default" (click)="onClick(search)">
+            <span class="glyphicon glyphicon-search" ></span>
+          </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8"> 
+      <div class="row">
+          <div class="col-md-12" > 
+            <div *ngIf="size">
+                <h3>Hi {{name}}, You are sharing your name with {{size-1}} others</h3>
+                <div *ngFor="let user of filteredresult">
+                    <a
+                    class="list-group-item clearfix">
+                    <div class="pull-left">
+                      <h4 class="list-group-item-heading">{{user}}</h4>
+                    </div>
+                  </a>
+                </div>
+            </div>
+            <div *ngIf="!size&&!nonefound">
+              <h3>
+                Please search your name
+              </h3>
+            </div>
+            <div *ngIf="!size&&nonefound">
+              <h3>
+                Wow! You are unique!! You have a rare name
+              </h3>
+            </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
+
+
